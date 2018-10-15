@@ -47,7 +47,7 @@ public class ProcessorHandler implements Runnable {
             types[i] = parameters[i].getClass();
         }
         try {
-
+            //获取方法的时候需要传入方法名及所有的参数类型
             Method method = service.getClass().getMethod(rpcRequest.getMethodName(), types);
             return method.invoke(service, parameters);
         } catch (NoSuchMethodException e) {
